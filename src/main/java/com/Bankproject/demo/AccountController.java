@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path ="api")
+@RequestMapping(path ="accounts")
 public class AccountController {
     private final AccountServices accountServices;
     @Autowired
@@ -14,12 +14,12 @@ public class AccountController {
         this.accountServices = accountServices;
     }
 
-    @GetMapping
+    @RequestMapping(method = RequestMethod.GET)
     public List<Account> allAccounts(){
         return accountServices.allAccounts();
     }
-    @RequestMapping(path="{email}")
-    public String test(@PathVariable String email){
+    @RequestMapping(path="{email}", method = RequestMethod.GET)
+    public List<Account> test(@PathVariable String email){
         return accountServices.findByEmail(email);
     }
 

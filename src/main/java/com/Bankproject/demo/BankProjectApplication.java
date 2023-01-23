@@ -12,12 +12,7 @@ import java.util.Scanner;
 public class BankProjectApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BankProjectApplication.class, args);
- 	System.out.println("___________________________");
-	    Menu menu = new Menu();
-	 	menu.atmMenu();
-		Scanner input = new Scanner(System.in);
-		String userInput = input.nextLine();
-	 	menu.menuActions(userInput);
+
 	}
 
 }

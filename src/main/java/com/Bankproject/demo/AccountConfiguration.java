@@ -9,8 +9,12 @@ public class AccountConfiguration {
     @Bean
     CommandLineRunner commandLineRunner(AccountRepository accountRepository){
       return args ->{
-          Account habib =new Account("habib","hassan",2000.0,4000.0,"habibhassan@google.com");
-			accountRepository.save(habib);
+          Account habib =new Account("Habib","Hassan",2000.0,4000.0,"habibhassan@gmail.com");
+          Account bob =new Account("Bob","Jones",1000.0,3000.0,"bobjones@gmail.com");
+          Account sam =new Account("Sam","Boots",1000.0,3000.0,"samboots@gmail.com");
+              accountRepository.save(sam);
+              accountRepository.save(habib);
+              accountRepository.save(bob);
       };
     }
 }

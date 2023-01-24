@@ -3,6 +3,7 @@ package com.Bankproject.demo;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.Month;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
 @Entity(name="HotelRooms")
@@ -27,12 +28,12 @@ public class HotelRooms {
         private long id;
         @Column(
                 name="to_Date",
-                nullable = false
+                nullable = true
         )
         private LocalDate toDate;
         @Column(
                 name="from_Date",
-                nullable = false
+                nullable = true
         )
         private LocalDate fromDate;
         @Column(
@@ -41,20 +42,66 @@ public class HotelRooms {
         )
         private double price;
         @Column(
-                name = "is_Empty",
+                name = "is_Accessible",
                 nullable = false
         )
-        private Boolean isEmpty;
+        private boolean isAccessible;
+        @Column(
+                name = "is_King",
+                nullable = false
+        )
+        private boolean isKing;
+        @Column(
+                name = "is_Two_Queens",
+                nullable = false
+        )
+        private boolean isTwoQueens;
+        @Column(
+                name="image_url",
+                nullable = false,
+                columnDefinition = "TEXT"
+        )
+        private String imageUrl;
         public HotelRooms(){
 
         }
 
 
-        public HotelRooms( LocalDate toDate, LocalDate fromDate, double price, Boolean isEmpty) {
+        public HotelRooms( LocalDate toDate, LocalDate fromDate, double price, boolean isAccessible, boolean isKing, boolean isTwoQueens, String imageUrl) {
                 this.toDate = toDate;
                 this.fromDate = fromDate;
                 this.price = price;
-                this.isEmpty = true;
+                this.isAccessible = isAccessible;
+                this.isKing=isKing;
+                this.isTwoQueens = isTwoQueens;
+                this.imageUrl = imageUrl;
+        }
+
+        public String getImageUrl() {
+                return imageUrl;
+        }
+
+        public void setImageUrl(String imageUrl) {
+                this.imageUrl = imageUrl;
+        }
+
+        public void setAccessible(boolean accessible) {
+                isAccessible = accessible;
+        }
+
+
+        public boolean isAccessible() {
+                return isAccessible;
+        }
+
+
+
+        public void setAccessible(Boolean accessible) {
+                this.isAccessible = accessible;
+        }
+
+        public Boolean getAccessible() {
+                return isAccessible;
         }
 
         public void setId(long id) {
@@ -73,9 +120,6 @@ public class HotelRooms {
                 this.price = price;
         }
 
-        public void setEmpty(Boolean empty) {
-                isEmpty = empty;
-        }
 
         public long getId() {
                 return id;
@@ -93,8 +137,20 @@ public class HotelRooms {
                 return price;
         }
 
-        public Boolean getEmpty() {
-                return isEmpty;
+        public boolean isKing() {
+                return isKing;
+        }
+
+        public boolean isTwoQueens() {
+                return isTwoQueens;
+        }
+
+        public void setKing(boolean king) {
+                isKing = king;
+        }
+
+        public void setTwoQueens(boolean twoQueens) {
+                isTwoQueens = twoQueens;
         }
 }
 

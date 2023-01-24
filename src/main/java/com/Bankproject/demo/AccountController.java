@@ -19,8 +19,13 @@ public class AccountController {
         return accountServices.allAccounts();
     }
     @RequestMapping(path="{email}", method = RequestMethod.GET)
-    public List<Account> test(@PathVariable String email){
+    public Account findByEmail(@PathVariable String email){
         return accountServices.findByEmail(email);
     }
+    @RequestMapping(path = "transfer/{money}/{email}/{email2}", method = RequestMethod.PUT)
+    public void transfer(@PathVariable Double money, @PathVariable String email,@PathVariable String email2){
+         accountServices.t(money,email,email2);
+    }
+
 
 }

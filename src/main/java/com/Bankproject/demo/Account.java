@@ -86,7 +86,7 @@ public class Account {
     }
 
     public void setChecking(double checking) {
-        this.checking = checking;
+        this.checking += checking;
     }
 
     public void setSavings(double savings) {

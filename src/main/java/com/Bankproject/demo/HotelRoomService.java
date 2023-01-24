@@ -27,6 +27,13 @@ public class HotelRoomService {
         }
         return rooms;
     }
+    List<HotelRooms>  roomIsKingBed(){
+        return hotelRoomRepository.isKing();
+    }
+
+    void nuller(){
+
+    }
 
 
 }

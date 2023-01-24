@@ -28,5 +28,9 @@ public class HotelRoomController {
     public List<HotelRooms> availableRooms(@PathVariable LocalDate fromDate, @PathVariable LocalDate toDate){
       return   hotelRoomService.availableRooms(fromDate,toDate);
     }
+    @RequestMapping(path="/isKing",method = RequestMethod.GET)
+    public List<HotelRooms> isKing(){
+        return hotelRoomService.roomIsKingBed();
+    }
 
 }

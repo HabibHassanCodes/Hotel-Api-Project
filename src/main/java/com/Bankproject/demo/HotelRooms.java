@@ -72,7 +72,7 @@ public class HotelRooms {
                 this.fromDate = fromDate;
                 this.price = price;
                 this.isAccessible = isAccessible;
-                this.isKing=isKing;
+                this.isKing = isKing;
                 this.isTwoQueens = isTwoQueens;
                 this.imageUrl = imageUrl;
         }

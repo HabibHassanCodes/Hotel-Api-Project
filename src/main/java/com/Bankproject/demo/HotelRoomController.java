@@ -1,5 +1,6 @@
 package com.Bankproject.demo;
 
+import org.springframework.beans.Mergeable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,11 @@ public class HotelRoomController {
     @RequestMapping(path="/isKing",method = RequestMethod.GET)
     public List<HotelRooms> isKing(){
         return hotelRoomService.roomIsKingBed();
+    }
+
+    @RequestMapping(path ="/checkout/{id}", method = RequestMethod.PUT)
+    public void  checkout(@PathVariable int id){
+         hotelRoomService.checkout(id);
     }
 
 }

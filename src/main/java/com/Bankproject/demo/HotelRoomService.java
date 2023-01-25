@@ -3,6 +3,7 @@ package com.Bankproject.demo;
 import org.apache.catalina.startup.HomesUserDatabase;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +32,8 @@ public class HotelRoomService {
         return hotelRoomRepository.isKing();
     }
 
-    void nuller(){
-
+    void checkout(int id){
+        Date date = Date.valueOf(LocalDate.now());
+        hotelRoomRepository.deactivateUsersNotLoggedInSince(id);
     }
-
-
 }

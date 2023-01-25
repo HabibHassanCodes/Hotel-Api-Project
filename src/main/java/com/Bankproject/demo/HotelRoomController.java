@@ -25,7 +25,7 @@ public class HotelRoomController {
        return hotelRoomService.hotelRoomsList();
     }
 
-    @RequestMapping(path = "/{fromDate}/{toDate}", method = RequestMethod.GET)
+    @RequestMapping(path = "/availableRooms/{fromDate}/{toDate}", method = RequestMethod.GET)
     public List<HotelRooms> availableRooms(@PathVariable LocalDate fromDate, @PathVariable LocalDate toDate){
       return   hotelRoomService.availableRooms(fromDate,toDate);
     }
@@ -34,13 +34,17 @@ public class HotelRoomController {
         return hotelRoomService.roomIsKingBed();
     }
 
-    @RequestMapping(path ="/checkout/{id}", method = RequestMethod.PUT)
+    @RequestMapping(path ="/checkOut/{id}", method = RequestMethod.PUT)
     public void  checkout(@PathVariable int id){
          hotelRoomService.checkout(id);
     }
-    @RequestMapping(path ="/checkin/{date}/{id}", method = RequestMethod.PUT)
+    @RequestMapping(path ="/checkIn/{date}/{id}", method = RequestMethod.PUT)
     public void checkIn(@PathVariable LocalDate date, @PathVariable int id){
         hotelRoomService.checkIn(date, id);
+    }
+    @RequestMapping(path = "/isAccessible",method = RequestMethod.GET)
+    public List<HotelRooms> isAccessible(){
+        return hotelRoomService.isAccessible();
     }
 
 }

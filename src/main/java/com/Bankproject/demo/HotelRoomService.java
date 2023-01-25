@@ -23,6 +23,9 @@ public class HotelRoomService {
         List<HotelRooms> rooms = new ArrayList<>();
         for(int i =0; i<hotelRoomsList().size();i++){
             if(hotelRoomsList().get(i).getToDate() ==null && hotelRoomsList().get(i).getFromDate() == null || hotelRoomsList().get(i).getFromDate().isAfter(fromDate) && hotelRoomsList().get(i).getToDate().isAfter(toDate) || hotelRoomsList().get(i).getFromDate().isBefore(fromDate) && hotelRoomsList().get(i).getToDate().isBefore(toDate)){
+                 hotelRoomsList().get(i).setFromDate(null);
+                hotelRoomsList().get(i).setToDate(null);
+
                 rooms.add(hotelRoomsList().get(i));
             }
         }
@@ -40,7 +43,9 @@ public class HotelRoomService {
     void checkIn(LocalDate date, int id){
         hotelRoomRepository.checkInFromDate(date,id);
         hotelRoomRepository.checkInToDate(date,id);
-        System.out.println("Working");
+    }
+    List<HotelRooms> isAccessible(){
+        return hotelRoomRepository.isAccessible();
     }
 
 }

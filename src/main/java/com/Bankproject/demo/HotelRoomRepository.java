@@ -43,6 +43,11 @@ public interface HotelRoomRepository extends JpaRepository<HotelRooms, Long> {
             value = "UPDATE hotel_rooms u SET u.to_date = :date WHERE u.id = :id",
             nativeQuery = true)
     void checkInToDate(@Param("date") LocalDate date, @Param("id") int id);
+
+    @Query(
+            value = "SELECT * FROM hotel_rooms u WHERE u.is_accessible = true",
+            nativeQuery = true)
+    List<HotelRooms> isAccessible();
 }
 
 

@@ -34,6 +34,13 @@ public class HotelRoomService {
 
     void checkout(int id){
         Date date = Date.valueOf(LocalDate.now());
-        hotelRoomRepository.deactivateUsersNotLoggedInSince(id);
+        hotelRoomRepository.checkoutFromDate(id);
+        hotelRoomRepository.checkoutToDate(id);
     }
+    void checkIn(LocalDate date, int id){
+        hotelRoomRepository.checkInFromDate(date,id);
+        hotelRoomRepository.checkInToDate(date,id);
+        System.out.println("Working");
+    }
+
 }

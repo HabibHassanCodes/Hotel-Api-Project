@@ -15,11 +15,34 @@ public interface HotelRoomRepository extends JpaRepository<HotelRooms, Long> {
             value = "SELECT * FROM hotel_rooms u WHERE u.is_king = true",
             nativeQuery = true)
     List<HotelRooms> isKing();
+
     @Transactional
     @Modifying
     @Query(
-            value = "UPDATE hotel_rooms u SET u.from_date = null WHERE u.id = :date",
+            value = "UPDATE hotel_rooms u SET u.from_date = null WHERE u.id = :id",
             nativeQuery = true)
-    void deactivateUsersNotLoggedInSince(@Param("date") int date);}
+    void checkoutFromDate(@Param("id") int id);
+
+    @Transactional
+    @Modifying
+    @Query(
+            value = "UPDATE hotel_rooms u SET u.to_date = null WHERE u.id = :id",
+            nativeQuery = true)
+    void checkoutToDate(@Param("id") int id);
+
+    @Transactional
+    @Modifying
+    @Query(
+            value = "UPDATE hotel_rooms u SET u.from_date = :date WHERE u.id = :id",
+            nativeQuery = true)
+    void checkInFromDate(@Param("date") LocalDate date, @Param("id") int id);
+
+    @Transactional
+    @Modifying
+    @Query(
+            value = "UPDATE hotel_rooms u SET u.to_date = :date WHERE u.id = :id",
+            nativeQuery = true)
+    void checkInToDate(@Param("date") LocalDate date, @Param("id") int id);
+}
 
 

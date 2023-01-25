@@ -23,10 +23,10 @@ git clone https://github.com/HabibHassanCodes/Hotel-Api-Project.git
  
  **Let's say you want a list of all the available rooms for a certain time period**
 
-- On swaggerUI find the GET request that has the path /hotelrooms/availablerooms/{fromDate}/{toDate} and click on it.
+- On SwaggerUI find the GET request that has the path /hotelrooms/availablerooms/{fromDate}/{toDate} and click on it.
 - Click "try it out"
-- enter fromDate/toDate parameters in this format "year-month-day". make sure to use dashes not back or forward slashes. 
-- click execute the result will display in the console below.
+- Enter fromDate/toDate parameters in this format "year-month-day". make sure to use dashes not back or forward slashes. 
+- Click execute and the result will display in the console below.
 
 
 

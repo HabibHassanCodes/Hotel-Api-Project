@@ -38,9 +38,9 @@ public class HotelRoomController {
     public void  checkout(@PathVariable int id){
          hotelRoomService.checkout(id);
     }
-    @RequestMapping(path ="/checkIn/{date}/{id}", method = RequestMethod.PUT)
-    public void checkIn(@PathVariable LocalDate date, @PathVariable int id){
-        hotelRoomService.checkIn(date, id);
+    @RequestMapping(path ="/reserveRoom/{fromDate}/{toDate}/{id}", method = RequestMethod.PUT)
+    public void checkIn(@PathVariable LocalDate fromDate,@PathVariable LocalDate toDate, @PathVariable int id){
+        hotelRoomService.checkIn(fromDate, toDate, id);
     }
     @RequestMapping(path = "/isAccessible",method = RequestMethod.GET)
     public List<HotelRooms> isAccessible(){

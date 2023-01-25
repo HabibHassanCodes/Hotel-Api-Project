@@ -40,9 +40,9 @@ public class HotelRoomService {
         hotelRoomRepository.checkoutFromDate(id);
         hotelRoomRepository.checkoutToDate(id);
     }
-    void checkIn(LocalDate date, int id){
-        hotelRoomRepository.checkInFromDate(date,id);
-        hotelRoomRepository.checkInToDate(date,id);
+    void checkIn(LocalDate fromDate, LocalDate toDate, int id){
+        hotelRoomRepository.checkInFromDate(fromDate,id);
+        hotelRoomRepository.checkInToDate(toDate,id);
     }
     List<HotelRooms> isAccessible(){
         return hotelRoomRepository.isAccessible();

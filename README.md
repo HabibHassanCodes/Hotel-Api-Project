@@ -1,4 +1,4 @@
-# Banking-Application
+# Hotel-Api-Project
 
 Used Technologies, Frameworks, Languages
 - Java
